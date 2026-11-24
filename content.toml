@@ -1,0 +1,343 @@
+# R5 Operating System website — all texts live here.
+#
+# Edit this file on github.com (pencil icon), click "Commit changes",
+# and the site updates itself within a few minutes.
+#
+# Rules of thumb:
+# - Text goes between "quotes". Longer text between """triple quotes""".
+# - A line that starts with # is a note and is not shown on the site.
+# - Screenshots: put the PNG in the screenshots/ folder and add a [[shot]] block below.
+
+[site]
+name = "R5 Operating System"
+tagline = "Same soul. Fresh pixels."
+description = "R5 is an independent desktop operating system built on Haiku. Fast, simple, yours, and finally a little bit flashy."
+github = "https://github.com/r5-operating-system/r5os"
+r5book = "https://github.com/r5-operating-system/r5os/tree/main/docs/r5book"
+version = "2026.1-dev"   # filled in automatically from r5os when available
+
+# ---------------------------------------------------------------- Home
+
+[home.hero]
+kicker = "R5 Operating System"
+title = "Same soul.<br>Fresh pixels."
+text = "An independent desktop built on Haiku. Fast, simple, yours, and finally a little bit flashy."
+pill = "not released yet"
+shot = "hero"              # the big window
+extra = "signin"           # small window in front (optional)
+
+[home.graphics]
+kicker = "01 · Graphics"
+title = "Your graphics chip finally has a job."
+text = "Every window drawn on the GPU. Soft shadows, frosted glass, Vulkan and OpenGL. No Linux required."
+hint = "Flip Dark/Light at the top. The pictures follow."
+shot = "about"
+
+[home.theming]
+kicker = "02 · Make it yours"
+title = "Your desktop, your rules."
+text = "Pick a Deskbar, pick a window style, and watch it change. Just like in Settings, Theme."
+
+  [[home.theming.deskbar]]
+  label = "Standard"
+  shot = "deskbar-standard"
+  caption = "The Deskbar, reimagined."
+
+  [[home.theming.deskbar]]
+  label = "Round"
+  shot = "deskbar-round"
+  caption = "Soft corners, floating free."
+
+  [[home.theming.deskbar]]
+  label = "Pill"
+  shot = "deskbar-pill"
+  caption = "Small, tidy, out of the way."
+
+  [[home.theming.deskbar]]
+  label = "Bar"
+  shot = "deskbar-bar"
+  caption = "Edge to edge, top or bottom."
+
+  [[home.theming.windows]]
+  label = "R5"
+  shot = "windows-r5"
+  caption = "R5: a crisp yellow tab and straight edges."
+
+  [[home.theming.windows]]
+  label = "R5 Modern"
+  shot = "windows-modern"
+  caption = "R5 Modern: round windows, a soft tab, glass."
+
+  [[home.theming.windows]]
+  label = "Classic"
+  shot = "windows-classic"
+  caption = "Classic (Haiku), for the purists. Grey bar, square tab, the way you remember it."
+  quiet = true
+
+[home.features]
+kicker = "03 · What's in the box"
+title = "The short version."
+
+  [[home.features.item]]
+  title = "A look of its own"
+  text = "Rounded windows, frosted glass, dark mode. Quiet, Balanced or Glassy."
+  shot = "look"
+
+  [[home.features.item]]
+  title = "GPU all the way"
+  text = "The desktop drawn with Skia on the graphics chip. Vulkan via RADV, OpenGL on top."
+  shot = "effects"
+
+  [[home.features.item]]
+  title = "One Settings window"
+  text = "Display, Appearance, Wi-Fi, Bluetooth, Power, Game controllers and more."
+  shot = "hero"
+
+  [[home.features.item]]
+  title = "Your account"
+  text = "Sign-in screen, screen locking, separate home folders."
+  shot = "signin"
+
+  [[home.features.item]]
+  title = "Wi-Fi 6 and WPA3"
+  text = "On selected cards. IPv6, network discovery, shared folders with Windows."
+  shot = "wifi"
+
+  [[home.features.item]]
+  title = "Print and play"
+  text = "AirPrint and IPP printing. Music to AirPlay 1 speakers."
+  shot = "print-play"
+
+  [[home.features.item]]
+  title = "Controllers"
+  text = "PlayStation, Xbox, Nintendo, 8BitDo. Rumble and DualSense triggers."
+  shot = "controllers"
+
+  [[home.features.item]]
+  title = "Sound"
+  text = "Steadier USB audio, HDMI, surround, MIDI 2.0 with a MIDI monitor."
+  shot = "sound"
+
+  [[home.features.item]]
+  title = "64-bit, tuned"
+  text = "AVX2 and FMA where your CPU has them. Fast cores doing the fast work."
+  shot = "information"
+
+  [[home.features.item]]
+  title = "Your Haiku apps"
+  text = "Same APIs, same apps. No drama."
+  shot = "apps"
+
+[home.play]
+kicker = "04 · Play"
+title = "Controllers? So welcome."
+text = "Plug in, or pair over Bluetooth. Test the buttons, feel the rumble. No, we're not kidding."
+shot = "controllers"
+
+[home.settings]
+kicker = "05 · Settings"
+title = "Change it. See it. Done."
+text = "Every setting in one tidy window. No Save button, no treasure hunt. Change your mind whenever you like."
+shot = "theme"
+
+[home.end]
+kicker = "The end · for now"
+title = "Not out yet."
+text = "No download today. Follow along and be first in line."
+button = "★ Follow on GitHub"
+button2 = "Read what's new"
+
+# ---------------------------------------------------------------- Screenshots page
+
+[screenshots]
+kicker = "Screenshots"
+title = "Have a look around."
+text = "Real screenshots from R5. Click one to see it big."
+filters = ["Settings", "Look", "Devices"]
+
+# One block per screenshot.
+#   name     = the file name in screenshots/ without .png.
+#              For a light and a dark version use name-light.png and name-dark.png.
+#   caption  = the line under the picture ("Title — text").
+#   tags     = which filter buttons show it.
+#   gallery  = false hides it from the Screenshots page (still usable on Home).
+#   cut      = false keeps the whole screen instead of cutting out the windows.
+#   area     = [left, top, right, bottom] as fractions, to use only part of the screen.
+
+[[shot]]
+name = "hero"
+caption = "Settings — every setting in one window."
+tags = ["Settings"]
+
+[[shot]]
+name = "signin"
+caption = "Sign in — your own account and home folder."
+tags = ["Look"]
+area = [0.31, 0.22, 0.70, 0.74]   # only the middle: the sign-in screen has a lighter band at the top
+
+[[shot]]
+name = "theme"
+caption = "Theme — pick a look, an accent, and how much glass."
+tags = ["Look"]
+
+[[shot]]
+name = "controllers"
+caption = "Game controllers — test buttons, sticks and rumble."
+tags = ["Devices"]
+
+[[shot]]
+name = "about"
+caption = "About R5 — next to Settings."
+tags = ["Look"]
+
+[[shot]]
+name = "information"
+caption = "Information — processor, memory, graphics and disks at a glance."
+tags = ["Settings"]
+
+[[shot]]
+name = "power"
+caption = "Power — battery, sleep and performance."
+tags = ["Settings"]
+
+[[shot]]
+name = "bluetooth"
+caption = "Bluetooth — pair devices nearby."
+tags = ["Devices"]
+
+[[shot]]
+name = "network"
+caption = "Network — Wi-Fi and wired connections."
+tags = ["Settings"]
+
+[[shot]]
+name = "desktop-deskbar"
+caption = "Desktop and Deskbar — where the bar sits and how it behaves."
+tags = ["Look"]
+
+# Screens for "Make it yours" (whole screen, not on the Screenshots page)
+[[shot]]
+name = "deskbar-standard"
+cut = false
+gallery = false
+[[shot]]
+name = "deskbar-round"
+cut = false
+gallery = false
+[[shot]]
+name = "deskbar-pill"
+cut = false
+gallery = false
+[[shot]]
+name = "deskbar-bar"
+cut = false
+gallery = false
+[[shot]]
+name = "windows-r5"
+cut = false
+gallery = false
+[[shot]]
+name = "windows-modern"
+cut = false
+gallery = false
+[[shot]]
+name = "windows-classic"
+cut = false
+gallery = false
+
+# Not made yet (see SCREENSHOTS-TO-MAKE.md). They appear as soon as the PNG is there.
+[[shot]]
+name = "look"
+caption = "Theme — the accent colours."
+tags = ["Look"]
+[[shot]]
+name = "effects"
+caption = "Window effects — Quiet, Balanced or Glassy."
+tags = ["Look"]
+[[shot]]
+name = "wifi"
+caption = "Wi-Fi — join a network."
+tags = ["Settings"]
+[[shot]]
+name = "print-play"
+caption = "Printers and AirPlay speakers on your network."
+tags = ["Devices"]
+[[shot]]
+name = "sound"
+caption = "MIDI Monitor — see what your keyboard sends."
+tags = ["Devices"]
+[[shot]]
+name = "apps"
+caption = "Your Haiku apps, right at home."
+tags = ["Look"]
+
+# ---------------------------------------------------------------- What's new
+
+[whatsnew]
+kicker = "What's new"
+title = "Fresh out of the oven."
+text = "Every build of R5, newest first. Written for people, not for compilers. These builds are for testing; there is no download yet."
+tab1 = "Highlights"
+tab2 = "What have we been up to?"
+changes_title = "What have we been up to?"
+changes_text = "Every pull request that landed in R5, newest first, straight from GitHub."
+# Only show pull requests merged on or after this date (leave empty for all).
+changes_since = ""
+
+# A picture next to a build on the Highlights tab: build number = screenshot name.
+[whatsnew.images]
+10067 = "power"
+10066 = "about"
+10065 = "controllers"
+10062 = "network"
+10052 = "information"
+
+# ---------------------------------------------------------------- Developers
+
+[developers]
+kicker = "Developers"
+title = "Build for R5.<br>Or build R5."
+text = "Your Haiku apps run as they are. R5 adds kits next to the Haiku API for the things a modern desktop needs. All R5 code is MIT."
+kits_title = "The R5 kits"
+kits = [
+  "<b>Appearance Kit</b> — cards, controls, themes, effects",
+  "<b>Admin Kit</b> — safe administrator requests",
+  "<b>Icons</b> — system icons in one call",
+  "<b>Vulkan</b> — RADV on the graphics chip, Lavapipe without",
+  "<b>Wi-Fi Kit</b> and <b>Bluetooth Kit</b>",
+  "<b>Power Kit</b> — battery and profiles",
+  "<b>Game Kit</b> — controllers, rumble, triggers",
+  "<b>MIDI 2 Kit</b>",
+  "<b>Settings modules</b> — add your own page",
+  "<b>Accounts</b> — several people, one computer",
+]
+
+  [[developers.card]]
+  title = "R5Book"
+  text = "The developer guide, laid out like a classic API book: every R5 kit, with examples and the design guidelines."
+  link = "Open the R5Book →"
+  url = "r5book"
+
+  [[developers.card]]
+  title = "The source"
+  text = "Everything is on GitHub: the code, the issues, and the honest changelog of what was tested where."
+  link = "r5-operating-system/r5os →"
+  url = "github"
+
+  [[developers.card]]
+  title = "Help out"
+  text = "Pick an issue, port an app, or test on your own hardware and tell us what broke."
+  link = "Open issues →"
+  url = "https://github.com/r5-operating-system/r5os/issues"
+
+
+# ---------------------------------------------------------------- Download
+
+[download]
+kicker = "Download"
+title = "Not yet."
+text = "Honest answer: there is no download today. R5 is tested build by build. When it is ready for you, this page gets a big yellow button."
+button = "★ Watch releases on GitHub"
+button2 = "See what's new"
+status_label = "Runs today"
+status = "Hardware acceleration runs on selected hardware. VirtualBox and QEMU are supported."
