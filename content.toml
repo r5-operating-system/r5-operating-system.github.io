@@ -80,53 +80,48 @@ kicker = "03 · What's in the box"
 title = "The short version."
 
   [[home.features.item]]
-  title = "A look of its own"
-  text = "Rounded windows, frosted glass, dark mode. Quiet, Balanced or Glassy."
+  title = "A fresh new look."
+  text = "A fresh visual identity gives R5 a more modern feel. Softer corners, beautiful frosted glass and a dark mode that feels right at home. With three styles to choose from — Quiet, Balanced and Glassy — there's room to make it your own."
   shot = "look"
 
   [[home.features.item]]
-  title = "GPU all the way"
-  text = "The desktop drawn with Skia on the graphics chip. Vulkan via RADV, OpenGL on top."
+  title = "Graphics in motion."
+  text = "Your graphics card is doing more of the heavy lifting, bringing the desktop to life through GPU-accelerated rendering. Under the hood, Skia, Vulkan via RADV and OpenGL make it happen."
   shot = "effects"
 
   [[home.features.item]]
-  title = "One Settings window"
-  text = "Display, Appearance, Wi-Fi, Bluetooth, Power, Game controllers and more."
+  title = "Everything in one place."
+  text = "Your most important system settings now live together in one place. From display and appearance to Wi-Fi, Bluetooth, power and game controllers, everything is easier to find and manage."
   shot = "hero"
 
   [[home.features.item]]
-  title = "Your account"
-  text = "Sign-in screen, screen locking, separate home folders."
+  title = "Make yourself at home."
+  text = "A proper and secure sign-in experience, screen locking and separate home folders make R5 feel like a complete, personal desktop. Your account, your files, your space."
   shot = "signin"
 
   [[home.features.item]]
-  title = "Wi-Fi 6 and WPA3"
-  text = "On selected cards. IPv6, network discovery, shared folders with Windows."
+  title = "Better connected."
+  text = "Faster, more secure wireless with Wi-Fi 6 and WPA3 on supported cards. IPv6, network discovery and Windows file sharing make it easier to connect to the devices and networks around you."
   shot = "wifi"
 
   [[home.features.item]]
-  title = "Print and play"
-  text = "AirPrint and IPP printing. Music to AirPlay 1 speakers."
-  shot = "print-play"
-
-  [[home.features.item]]
-  title = "Controllers"
-  text = "PlayStation, Xbox, Nintendo, 8BitDo. Rumble and DualSense triggers."
+  title = "Ready for your devices."
+  text = "Print wirelessly, stream music to AirPlay speakers and connect the controllers you already own. PlayStation, Xbox, Nintendo and 8BitDo are welcome, with rumble and DualSense adaptive trigger support included."
   shot = "controllers"
 
   [[home.features.item]]
-  title = "Sound"
-  text = "Steadier USB audio, HDMI, surround, MIDI 2.0 with a MIDI monitor."
+  title = "Sound, upgraded."
+  text = "From more dependable USB audio to HDMI, surround sound and MIDI 2.0, R5 gives you more ways to listen, create and connect your audio gear."
   shot = "sound"
 
   [[home.features.item]]
-  title = "64-bit, tuned"
-  text = "AVX2 and FMA where your CPU has them. Fast cores doing the fast work."
+  title = "More power. Less waste."
+  text = "R5 makes better use of modern 64-bit processors, taking advantage of AVX2 and FMA where available and putting the right work on the right cores. More of your hardware, put to good use."
   shot = "information"
 
   [[home.features.item]]
-  title = "Your Haiku apps"
-  text = "Same APIs, same apps. No drama."
+  title = "Same soul. Even better."
+  text = "Your favourite Haiku applications keep working with the same APIs. No migration, no compatibility headaches. Just the apps you love, on a better desktop."
   shot = "apps"
 
 [home.play]
