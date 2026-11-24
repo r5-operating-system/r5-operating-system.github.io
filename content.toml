@@ -136,6 +136,21 @@ title = "Change it. See it. Done."
 text = "Every setting in one tidy window. No Save button, no treasure hunt. Change your mind whenever you like."
 shot = "theme"
 
+[home.needyou]
+kicker = "06 · We need you"
+title = "Your card, in this log."
+text = "R5 talks to one graphics chip natively today. The Driver Kit will make the next one a lot easier: describe the chip, fill in the hardware part, pass the tests."
+soon = "Driver Kit · coming soon"
+button = "★ Follow along on GitHub"
+# The lines that appear one by one. kind = ok (green), wait (yellow), no (red), dim (grey).
+log = [
+  ["dim",  "[    0.412] gpu: looking for graphics chips…"],
+  ["ok",   "[    0.418] radeon_hd: Ryzen 5 5625U  ✓ native, on the GPU"],
+  ["wait", "[    0.419] intel: next in line, waiting for the Driver Kit…"],
+  ["no",   "[    0.420] your_card: not found. yet."],
+  ["dim",  "[    0.421] gpu: falling back to software. it works, but it could fly."],
+]
+
 [home.end]
 kicker = "The end · for now"
 title = "Not out yet."

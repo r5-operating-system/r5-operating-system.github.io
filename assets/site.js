@@ -53,3 +53,14 @@ if (box) {
 	});
 	box.onclick = () => box.classList.remove('on');
 }
+
+// We need you: the boot log types itself once it scrolls into view
+const term = document.querySelector('.term .lines');
+if (term) {
+	const lines = [...term.children];
+	new IntersectionObserver((e, o) => {
+		if (!e[0].isIntersecting) return;
+		o.disconnect();
+		lines.forEach((l, i) => setTimeout(() => l.classList.add('on'), 300 + i * 650));
+	}, {threshold: .4}).observe(term);
+}

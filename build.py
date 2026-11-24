@@ -211,6 +211,14 @@ def build_home() -> None:
 		body += (f'<section class="strip"><div class="row">{"".join(strip * 2)}</div>'
 				 f'<a class="btn o" href="/screenshots/">All screenshots →</a></section>')
 
+	n = h.get("needyou")
+	if n:
+		lines = "".join(f'<div class="{esc(k)}">{esc(t)}</div>' for k, t in n["log"])
+		body += (f'<section class="needyou"><div class="term" aria-label="Boot log"><div class="lines">{lines}</div>'
+				 f'<span class="cursor"></span></div><div><div class="num">{n["kicker"]}</div><h2>{n["title"]}</h2>'
+				 f'<p>{n["text"]}</p><p><span class="soon">{n["soon"]}</span></p>'
+				 f'<a class="btn" href="{C["site"]["github"]}">{n["button"]}</a></div></section>')
+
 	e = h["end"]
 	body += (f'<section class="end"><div><div class="num">{e["kicker"]}</div><h2>{e["title"]}</h2><p>{e["text"]}</p>'
 			 f'<a class="btn" href="{C["site"]["github"]}">{e["button"]}</a>'
