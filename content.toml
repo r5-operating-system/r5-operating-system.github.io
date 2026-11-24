@@ -145,8 +145,8 @@ button = "★ Follow along on GitHub"
 # The lines that appear one by one. kind = ok (green), wait (yellow), no (red), dim (grey).
 log = [
   ["dim",  "[    0.412] gpu: looking for graphics chips…"],
-  ["ok",   "[    0.418] radeon_hd: Ryzen 5 5625U  ✓ native, on the GPU"],
-  ["wait", "[    0.419] intel: next in line, waiting for the Driver Kit…"],
+  ["ok",   "[    0.418] radeon_hd: Barcelo  ✓ native, on the GPU"],
+  ["wait", "[    0.419] Intel UHD Graphics (Comet Lake): Developing"],
   ["no",   "[    0.420] your_card: not found. yet."],
   ["dim",  "[    0.421] gpu: falling back to software. it works, but it could fly."],
 ]
