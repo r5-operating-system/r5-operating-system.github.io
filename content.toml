@@ -13,7 +13,7 @@ name = "R5 Operating System"
 tagline = "Same soul. Fresh pixels."
 description = "R5 is an independent desktop operating system built on Haiku. Fast, simple, yours, and finally a little bit flashy."
 github = "https://github.com/r5-operating-system/r5os"
-r5book = "https://github.com/r5-operating-system/r5os/tree/main/docs/r5book"
+r5book = "/r5book/"
 version = "2026.1-dev"   # filled in automatically from r5os when available
 
 # ---------------------------------------------------------------- Home
@@ -25,6 +25,7 @@ text = "An independent desktop built on Haiku. Fast, simple, yours, and finally 
 pill = "not released yet"
 shot = "hero"              # the big window
 extra = "signin"           # small window in front (optional)
+deskbar = "hero-deskbar"   # the Deskbar at the top right (optional)
 
 [home.graphics]
 kicker = "01 · Graphics"
@@ -214,6 +215,14 @@ tags = ["Settings"]
 name = "desktop-deskbar"
 caption = "Desktop and Deskbar — where the bar sits and how it behaves."
 tags = ["Look"]
+
+# The Deskbar in the first scene: the top-right corner of the Round Deskbar screenshots.
+[[shot]]
+name = "hero-deskbar"
+source = "deskbar-round"
+area = [0.845, 0, 1, 0.215]
+keep_small = true
+gallery = false
 
 # Screens for "Make it yours" (whole screen, not on the Screenshots page)
 [[shot]]

@@ -1,5 +1,13 @@
 [
 {
+"number": 4591,
+"title": "VulkanTeapot - in the Demos menu, with a blue teapot icon",
+"merged": "2026-11-24T10:44:41Z",
+"url": "https://github.com/r5-operating-system/r5os/pull/4591",
+"intro": "VulkanTeapot is now in the Deskbar's Demos menu and has its own icon instead of the generic one. Demos: the vulkanteapot package (now 1.0.0-6) adds data/deskbar/menu/Demos/VulkanTeapot, the same way Haiku adds GLTeapot.",
+"area": "Graphics"
+},
+{
 "number": 4590,
 "title": "Security Kit: vendor Monocypher 4.0.2 and add libr5security.so (Step 1)",
 "merged": "2026-11-24T10:02:22Z",

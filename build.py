@@ -51,8 +51,9 @@ SHOTS: dict[str, dict] = {}
 def _render(src: pathlib.Path, spec: dict) -> tuple[str, int, int]:
 	cut = spec.get("cut", True)
 	area = spec.get("area")
+	keep_small = spec.get("keep_small", False)
 	data = src.read_bytes()
-	key = hashlib.sha1(data + repr((cut, area, 3)).encode()).hexdigest()[:16]
+	key = hashlib.sha1(data + repr((cut, area, keep_small, 3)).encode()).hexdigest()[:16]
 	ext = "webp"
 	CACHE.mkdir(exist_ok=True)
 	cached = CACHE / f"{key}.{ext}"
@@ -61,7 +62,7 @@ def _render(src: pathlib.Path, spec: dict) -> tuple[str, int, int]:
 		if area:
 			w, h = im.size
 			im = im.crop((int(area[0] * w), int(area[1] * h), int(area[2] * w), int(area[3] * h)))
-		out = cutout.cut(im) if cut else None
+		out = cutout.cut(im, keep_small) if cut else None
 		if out is None:
 			if cut:
 				warnings.append(f"{src.name}: no R5 wallpaper found, showing the whole screen")
@@ -69,7 +70,7 @@ def _render(src: pathlib.Path, spec: dict) -> tuple[str, int, int]:
 		out.thumbnail((1600, 1600), Image.LANCZOS)
 		out.save(cached, "WEBP", quality=90, method=6)
 	w, h = Image.open(cached).size
-	name = f"{src.stem}-{key[:8]}.{ext}"
+	name = f"{spec['name']}-{src.stem.rsplit('-', 1)[-1]}-{key[:8]}.{ext}"
 	(OUT / "shots").mkdir(parents=True, exist_ok=True)
 	shutil.copyfile(cached, OUT / "shots" / name)
 	return f"/shots/{name}", w, h
@@ -79,8 +80,9 @@ def load_shots() -> None:
 	folder = ROOT / "screenshots"
 	for spec in C.get("shot", []):
 		n = spec["name"]
-		files = {v: folder / f"{n}-{v}.png" for v in ("light", "dark")}
-		plain = folder / f"{n}.png"
+		src_name = spec.get("source", n)  # reuse another screenshot file
+		files = {v: folder / f"{src_name}-{v}.png" for v in ("light", "dark")}
+		plain = folder / f"{src_name}.png"
 		found = {v: p for v, p in files.items() if p.exists()}
 		if not found and plain.exists():
 			found = {"light": plain}
@@ -159,6 +161,8 @@ def build_home() -> None:
 	h = C["home"]
 	hero = h["hero"]
 	extra = f'<div class="small">{shot(hero["extra"])}</div>' if hero.get("extra") and hero["extra"] in SHOTS else ""
+	if hero.get("deskbar") and hero["deskbar"] in SHOTS:
+		extra += f'<div class="db">{shot(hero["deskbar"])}</div>'
 	body = (f'<section class="hero"><div class="txt"><div class="num">{hero["kicker"]}</div><h1>{hero["title"]}</h1>'
 			f'<p>{hero["text"]}</p><span class="pill">{esc(VERSION)} · {hero["pill"]}</span></div>'
 			f'<div class="stage">{shot(hero["shot"])}{extra}</div></section>')
@@ -319,6 +323,43 @@ def build_download() -> None:
 	page("/download/", "Download", body, "/download/")
 
 
+def build_r5book() -> None:
+	"""Copy the R5Book from r5os (fetched by tools/fetch.py) to /r5book/.
+
+	Links that leave docs/r5book are fixed up: files we fetched are copied next to
+	the book, Markdown and anything else point to the file on GitHub."""
+	repo = ROOT / "data" / "r5os"
+	src = repo / "docs" / "r5book"
+	if not src.exists():
+		warnings.append("R5Book not fetched: run tools/fetch.py")
+		return
+	dst = OUT / "r5book"
+	shutil.copytree(src, dst, ignore=shutil.ignore_patterns("README.md"))
+	blob = C["site"]["github"] + "/blob/main/"
+
+	def fix(m: re.Match) -> str:
+		attr, rel = m.group(1), m.group(2)
+		target = (src / rel).resolve()
+		try:
+			inrepo = target.relative_to(repo.resolve()).as_posix()
+		except ValueError:
+			return m.group(0)
+		if target.is_file() and target.suffix != ".md":
+			out = dst / "_r5os" / inrepo
+			out.parent.mkdir(parents=True, exist_ok=True)
+			shutil.copyfile(target, out)
+			return f'{attr}="/r5book/_r5os/{inrepo}"'
+		if not target.exists():
+			warnings.append(f"R5Book links to a missing file: {inrepo}")
+		return f'{attr}="{blob}{inrepo}"'
+
+	for page_file in dst.glob("*.html"):
+		text = page_file.read_text(encoding="utf-8")
+		new = re.sub(r'(href|src)="(\.\./[^"#?]*)"', fix, text)
+		if new != text:
+			page_file.write_text(new, encoding="utf-8")
+
+
 def build_404() -> None:
 	body = ('<main class="page"><div class="num">404</div><p class="egg">Lost?</p>'
 			'<p class="lead" style="margin-top:20px">This page does not exist. Not even in Tracker.</p>'
@@ -346,6 +387,7 @@ def main() -> None:
 	build_whatsnew()
 	build_developers()
 	build_download()
+	build_r5book()
 	build_404()
 	for w in warnings:
 		print("note:", w)

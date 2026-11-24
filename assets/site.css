@@ -47,6 +47,7 @@ html.light .pair .l{opacity:1}html.light .pair .d{opacity:0}
 .stage:before{content:"";position:absolute;inset:-10% -5%;background:radial-gradient(closest-side,var(--glow),transparent)}
 .stage>*{grid-area:1/1;position:relative}
 .stage .small{width:34%;justify-self:end;align-self:end;margin:0 -6% -10% 0;z-index:2}
+.stage .db{width:22%;justify-self:end;align-self:start;margin:-9% -5% 0 0;z-index:3}
 .reveal .stage>*{transform:translateY(40px) scale(.97);transition:transform .8s}.reveal.in .stage>*{transform:none}
 
 /* make it yours */
@@ -140,4 +141,4 @@ details.older summary{cursor:pointer;padding:24px 0;color:var(--mute);font-weigh
  .strip img{height:200px}
 }
 @media (min-width:821px){nav .links{display:flex;gap:22px}}
-@media (max-width:820px){.stage .small{margin:0 0 -8% 0}}
+@media (max-width:820px){.stage .small{margin:0 0 -8% 0}.stage .db{margin:-9% 0 0 0}}

@@ -71,8 +71,35 @@ def clean_body(body: str, title: str) -> str:
 	return summary
 
 
+# The R5Book, plus the few files outside docs/r5book that its pages show.
+R5BOOK_PATHS = [
+	"/docs/r5book/",
+	"/docs/design/login-mockup/icons/",
+	"/docs/design/screens/theme/controls-modern-*-live.png",
+	"/distro/artwork/r5-symbol.svg",
+]
+
+
+def fetch_r5book() -> None:
+	"""Shallow, sparse clone of r5os into data/r5os: only the paths above are downloaded."""
+	dest = DATA / "r5os"
+	git = lambda *a: subprocess.run(["git", "-C", str(dest), *a], check=True, capture_output=True, text=True)
+	try:
+		if not (dest / ".git").exists():
+			subprocess.run(["git", "clone", "--depth", "1", "--filter=blob:none", "--no-checkout",
+							f"https://github.com/{REPO}.git", str(dest)], check=True, capture_output=True, text=True)
+			git("sparse-checkout", "init", "--no-cone")
+		git("sparse-checkout", "set", "--no-cone", *R5BOOK_PATHS)
+		git("fetch", "--depth", "1", "origin", "main")
+		git("checkout", "-f", "FETCH_HEAD")
+		print("r5book:", len(list((dest / "docs" / "r5book").glob("*.html"))), "pages")
+	except (OSError, subprocess.CalledProcessError) as e:
+		print("could not fetch the R5Book, keeping old copy:", getattr(e, "stderr", e))
+
+
 def main() -> None:
 	DATA.mkdir(exist_ok=True)
+	fetch_r5book()
 	try:
 		(DATA / "WHATSNEW").write_text(raw("distro/WHATSNEW"), encoding="utf-8")
 		version = [ln for ln in raw("distro/VERSION").splitlines() if ln and not ln.startswith("#")][0].strip()
