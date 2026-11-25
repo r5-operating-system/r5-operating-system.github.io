@@ -14,6 +14,7 @@ tagline = "Same soul. Fresh pixels."
 description = "R5 is an independent desktop operating system built on Haiku. Fast, simple, yours, and finally a little bit flashy."
 github = "https://github.com/r5-operating-system/r5os"
 r5book = "/r5book/"
+translate = "https://hosted.weblate.org/projects/r5/"   # Weblate, for translators
 version = "2026.1-dev"   # filled in automatically from r5os when available
 
 # ---------------------------------------------------------------- Home

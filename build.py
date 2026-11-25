@@ -138,7 +138,7 @@ def page(path: str, title: str, body: str, active: str = "") -> None:
 <button class="menu" aria-label="Menu">☰</button></nav>
 {body}
 <footer><span>{esc(site['name'])} · {esc(VERSION)}</span><span class="sp"></span>
-<a href="{site['github']}">GitHub</a><a href="{site['r5book']}">R5Book</a><a href="{site['github']}/blob/main/THIRD_PARTY_NOTICES.md">Credits</a>
+<a href="{site['github']}">GitHub</a><a href="{site['r5book']}">R5Book</a><a href="{site['translate']}">Translate</a><a href="{site['github']}/blob/main/THIRD_PARTY_NOTICES.md">Credits</a>
 <span>R5 code MIT · logo artwork GPL-3.0-or-later · Manrope OFL</span></footer>
 <script src="/assets/site.js?v={VERSION_STAMP}"></script>
 </body></html>
