@@ -33,7 +33,7 @@ kicker = "01 · Graphics"
 title = "Your graphics chip finally has a job."
 text = "Every window drawn on the GPU. Soft shadows, frosted glass, Vulkan and OpenGL. No Linux required."
 hint = "Flip Dark/Light at the top. The pictures follow."
-shot = "about"
+shot = "vulkan"
 
 [home.theming]
 kicker = "02 · Make it yours"
@@ -58,7 +58,7 @@ text = "Pick a Deskbar, pick a window style, and watch it change. Just like in S
   [[home.theming.deskbar]]
   label = "Bar"
   shot = "deskbar-bar"
-  caption = "Edge to edge, top or bottom."
+  caption = "Across the top. Your desktop icons make room."
 
   [[home.theming.windows]]
   label = "R5"
@@ -200,6 +200,11 @@ tags = ["Devices"]
 [[shot]]
 name = "about"
 caption = "About R5 — next to Settings."
+tags = ["Look"]
+
+[[shot]]
+name = "vulkan"
+caption = "VulkanTeapot on RADV, next to About R5."
 tags = ["Look"]
 
 [[shot]]
