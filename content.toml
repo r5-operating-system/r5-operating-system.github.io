@@ -208,6 +208,31 @@ caption = "VulkanTeapot on RADV, next to About R5."
 tags = ["Look"]
 
 [[shot]]
+name = "welcome"
+caption = "Welcome — pick your language, then try R5 or install it."
+tags = ["Look"]
+
+[[shot]]
+name = "welcome-classic"
+caption = "The same welcome in Classic (Haiku), for the purists."
+tags = ["Look"]
+
+[[shot]]
+name = "accounts"
+caption = "Users and Accounts — everyone gets their own account and home."
+tags = ["Settings"]
+
+[[shot]]
+name = "display"
+caption = "Display — resolution, refresh rate and workspaces."
+tags = ["Settings"]
+
+[[shot]]
+name = "notifications"
+caption = "Notifications — how wide, how long, and in which corner."
+tags = ["Settings"]
+
+[[shot]]
 name = "information"
 caption = "Information — processor, memory, graphics and disks at a glance."
 tags = ["Settings"]
